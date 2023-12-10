@@ -24,6 +24,8 @@ import {
   isPrimaryInstance,
 } from './core/core.utils';
 import { TrimPipe } from './core/pipes/trim.pipe';
+import { LicenseService } from './core/modules/license/license.service';
+
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -79,6 +81,11 @@ async function bootstrap() {
   if (config.get('useSocketIO')) {
     initAdapters(app);
   }
+
+  // Ensure the LicenseModule is initialized before starting the application
+  await app.select(AppModule).get(LicenseService).onApplicationBootstrap();
+
+
   /* Starting app */
   const port = config.get('port');
   await app.listen(port);

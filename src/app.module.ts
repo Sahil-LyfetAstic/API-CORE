@@ -8,6 +8,7 @@ import { AppGateway } from './app.gateway';
 import { AppService } from './app.service';
 import { CoreModule } from './core/core.module';
 import { CommonModule } from './modules/common.module';
+import { LicenseModule } from './core/modules/license/license.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CommonModule } from './modules/common.module';
     SqlModule.root({ seeder: true }),
     EmailModule,
     CommonModule.register(),
+    LicenseModule
   ],
   controllers: [AppController],
   providers: [AppService, AppGateway],

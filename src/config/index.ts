@@ -17,6 +17,8 @@ export enum Environment {
   Production = 'production',
 }
 
+
+
 export default () => ({
   /**
    * @property {Environment} env - environment
@@ -112,4 +114,9 @@ export default () => ({
   cache: <CacheManagerOptions>{
     ttl: 60,
   },
+
+  /**
+   * License
+   */
+
 });

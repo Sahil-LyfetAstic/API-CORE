@@ -37,6 +37,9 @@ lerna-debug.log*
 # environment
 .env
 
+#license
+license
+
 # public 
 public/*
 !public/assets/
