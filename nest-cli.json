@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "assets": [
+      "**/*.hbs"
+    ],
+    "deleteOutDir": true,
+    "watchAssets": true,
+    "webpack": true
+  },
+  "projects": {
+    "mongo": {
+      "type": "library",
+      "root": "libs/mongo",
+      "entryFile": "index",
+      "sourceRoot": "libs/mongo/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/mongo/tsconfig.lib.json"
+      }
+    },
+    "sql": {
+      "type": "library",
+      "root": "libs/sql",
+      "entryFile": "index",
+      "sourceRoot": "libs/sql/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/sql/tsconfig.lib.json"
+      }
+    },
+    "email": {
+      "type": "library",
+      "root": "libs/email",
+      "entryFile": "index",
+      "sourceRoot": "libs/email/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/email/tsconfig.lib.json"
+      }
+    },
+    "firebase": {
+      "type": "library",
+      "root": "libs/firebase",
+      "entryFile": "index",
+      "sourceRoot": "libs/firebase/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/firebase/tsconfig.lib.json"
+      }
+    },
+    "geocoder": {
+      "type": "library",
+      "root": "libs/geocoder",
+      "entryFile": "index",
+      "sourceRoot": "libs/geocoder/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/geocoder/tsconfig.lib.json"
+      }
+    },
+    "recaptcha": {
+      "type": "library",
+      "root": "libs/recaptcha",
+      "entryFile": "index",
+      "sourceRoot": "libs/recaptcha/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/recaptcha/tsconfig.lib.json"
+      }
+    },
+    "twilio": {
+      "type": "library",
+      "root": "libs/twilio",
+      "entryFile": "index",
+      "sourceRoot": "libs/twilio/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/twilio/tsconfig.lib.json"
+      }
+    },
+    "stripe": {
+      "type": "library",
+      "root": "libs/stripe",
+      "entryFile": "index",
+      "sourceRoot": "libs/stripe/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/stripe/tsconfig.lib.json"
+      }
+    }
+  }
+}

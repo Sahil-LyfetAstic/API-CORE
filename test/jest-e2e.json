@@ -1,0 +1,33 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "testPathIgnorePatterns": [],
+  "moduleNameMapper": {
+    "src/(.*)": "<rootDir>/../src/$1",
+    "@core/mongo/(.*)": "<rootDir>/../libs/mongo/src/$1",
+    "@core/mongo": "<rootDir>/../libs/mongo/src",
+    "@core/sql/(.*)": "<rootDir>/../libs/sql/src/$1",
+    "@core/sql": "<rootDir>/../libs/sql/src",
+    "@core/email/(.*)": "<rootDir>/../libs/email/src/$1",
+    "@core/email": "<rootDir>/../libs/email/src",
+    "@core/firebase/(.*)": "<rootDir>/../libs/firebase/src/$1",
+    "@core/firebase": "<rootDir>/../libs/firebase/src",
+    "@core/geocoder/(.*)": "<rootDir>/../libs/geocoder/src/$1",
+    "@core/geocoder": "<rootDir>/../libs/geocoder/src",
+    "@core/recaptcha/(.*)": "<rootDir>/../libs/recaptcha/src/$1",
+    "@core/recaptcha": "<rootDir>/../libs/recaptcha/src",
+    "@core/stripe/(.*)": "<rootDir>/../libs/stripe/src/$1",
+    "@core/stripe": "<rootDir>/../libs/stripe/src",
+    "@core/twilio/(.*)": "<rootDir>/../libs/twilio/src/$1",
+    "@core/twilio": "<rootDir>/../libs/twilio/src"
+  }
+}

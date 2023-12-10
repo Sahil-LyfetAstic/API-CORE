@@ -1,0 +1,61 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: ['main', 'development']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        mongodb-version: ['6.0']
+        redis-version: [5]
+
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Start Redis
+        uses: supercharge/redis-github-action@1.5.0
+        with:
+          redis-version: ${{ matrix.redis-version }}
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.8.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
+      - name: Start MySQL
+        uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: '8.0'
+          user: 'demo'
+          password: '123456'
+      - name: Create MySQL Database
+        run: mysql -uroot -h127.0.0.1 -e 'CREATE DATABASE IF NOT EXISTS nestv2;'
+      - name: Install
+        run: yarn install
+      - name: Test (Mongo Engine)
+        run: yarn run test:e2e:mongo
+        env:
+          APP_ENGINE: 'mongo'
+          DATABASE_USERNAME: 'demo'
+          DATABASE_PASSWORD: '123456'
+          DATABASE_NAME: 'nestv2'
+      - name: Test (SQL Engine)
+        run: yarn run test:e2e:sql
+        env:
+          APP_ENGINE: 'sql'
+          DATABASE_USERNAME: 'demo'
+          DATABASE_PASSWORD: '123456'
+          DATABASE_NAME: 'nestv2'

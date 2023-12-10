@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@core/mongo": ["libs/mongo/src"],
+      "@core/mongo/*": ["libs/mongo/src/*"],
+      "@core/sql": ["libs/sql/src"],
+      "@core/sql/*": ["libs/sql/src/*"],
+      "@core/email": ["libs/email/src"],
+      "@core/email/*": ["libs/email/src/*"],
+      "@core/firebase": ["libs/firebase/src"],
+      "@core/firebase/*": ["libs/firebase/src/*"],
+      "@core/geocoder": ["libs/geocoder/src"],
+      "@core/geocoder/*": ["libs/geocoder/src/*"],
+      "@core/recaptcha": ["libs/recaptcha/src"],
+      "@core/recaptcha/*": ["libs/recaptcha/src/*"],
+      "@core/twilio": ["libs/twilio/src"],
+      "@core/twilio/*": ["libs/twilio/src/*"],
+      "@core/stripe": ["libs/stripe/src"],
+      "@core/stripe/*": ["libs/stripe/src/*"]
+    }
+  }
+}
